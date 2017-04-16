@@ -25,14 +25,12 @@ public class WeatherReport implements FacetInterface{
         ObjectMapper mapper = new ObjectMapper();
         WeatherObject jsonObject = mapper.readValue(resultStr, WeatherObject.class);
         String reportTitle = jsonObject.title;
-//        String detailToDayReport = jsonObject.description.text;
         String toDayAboutReport = jsonObject.forecasts[0].telop;
-        String toDayMaxCelsius = jsonObject.forecasts[0].temperature.max.celsius;
-        String toDayMinCelsius = jsonObject.forecasts[0].temperature.min.celsius;
+        String toDayCelsius = jsonObject.forecasts[0].temperature.max.celsius;
         String tomorrowAboutReport = jsonObject.forecasts[1].telop;
         String tomorrowMaxCelsius = jsonObject.forecasts[1].temperature.max.celsius;
         String tomorrowMinCelsius = jsonObject.forecasts[1].temperature.min.celsius;
-        String talking = reportTitle + "です。" + "今日の天気と気温です。" + toDayAboutReport + "。最高温度" + toDayMaxCelsius + "度。最低温度" + toDayMinCelsius + "度です。" + "明日の天気と気温です。" + tomorrowAboutReport + "。最高温度" + tomorrowMaxCelsius + "度。" + "最低温度" + tomorrowMinCelsius + "度です。";
+        String talking = reportTitle + "です。" + "今日の天気と気温です。" + toDayAboutReport + "。温度" + toDayCelsius + "度。明日の天気と気温です。" + tomorrowAboutReport + "。最高温度" + tomorrowMaxCelsius + "度。" + "最低温度" + tomorrowMinCelsius + "度です。";
         // 半角スペースと改行の削除
         talking = talking.replace("\n", "");
         talking = talking.replace("\u0020", "");
