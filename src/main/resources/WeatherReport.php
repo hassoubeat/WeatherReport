@@ -26,7 +26,7 @@
     }
     
 ?>
-<form method="post" action="../edit.php?facetName=<?php echo $_GET[facetName]?>">
+<form method="post" action="./edit.php?facetName=<?php echo $_GET[facetName]?>">
     <div class="form-group">
         <label>天気を取得する場所 : WeatherReportで天気予報を行う箇所を選択します。</label><br>
         <select name="cityId">
